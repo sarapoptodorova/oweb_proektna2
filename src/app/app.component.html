@@ -1,0 +1,26 @@
+<div class="mainContent">
+  <div class="title">WORDLE</div>
+  <div class="tiles">
+    <ng-container *ngFor="let item of boxes">
+      <div class="parentTile"> <!--mora vaka so dva fora i ke imame edna kocka visok zosto imame niza od nizi-->
+        <ng-container *ngFor="let child of item">
+          <div class="{{child.class}}">{{child.key}}</div>
+        </ng-container>
+      </div>
+    </ng-container>
+  </div>
+  <div class="keyboard">
+    <ng-container *ngFor="let item of keyboard">
+      <ng-container *ngIf="item.key==='ENTER'">
+        <button style="width: 70px;" (click)="handleChange(item.key)">{{item.key}}</button>
+      </ng-container>
+      <ng-container *ngIf="item.key==='BACKSPACE'">
+        <button style="width: 95px;" (click)="handleChange(item.key)">{{item.key}}</button>
+      </ng-container>
+      <ng-container *ngIf="item.key!='ENTER' &&item.key!='BACKSPACE'">
+        <button (click)="handleChange(item.key)">{{item.key}}</button>
+      </ng-container>
+      
+    </ng-container>
+  </div>
+</div>
